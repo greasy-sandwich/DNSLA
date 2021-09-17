@@ -30,7 +30,7 @@ After a several number of benchmarks with a Linux Mint Xfce 20.2 virtual machine
 This advice is given due to the overhead that NICs can encounter during the sniffing process (receiving and duplicating packets) over high-speed networks.
 
 If the 1st requirement can't be satisfied, try at least to not do DNS requests on DNSLA's host at all.
-If instead, the 1st is satisfied, even if the 2nd isn't, it shouldn't slow much the whole process (but still don't exagerate with DNS queries if the hardware isn't powerful).  
+If instead, the 1st is satisfied, even if the 2nd isn't, it shouldn't slow much the whole process (but still don't exagerate with DNS queries if the hardware isn't very powerful).  
 Anyway, we highly recommend to NOT run the software on a station that doesn't satisfy the 1st requirement as results and functioning aren't guaranteed.  
 If you don't know your subnet address and mask, do "sudo apt install ipcalc" so that the software will be able to compute it automatically.
 
