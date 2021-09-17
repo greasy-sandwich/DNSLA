@@ -38,4 +38,5 @@ __PLEASE NOTE__: this software exploits packet sniffing. It's strictly forbidden
 Any responsibility on the use of this software is rejected and will be on the user's own since the moment it's downloaded.
 
 ## Execution
-The software can be executed by opening a shell (it was used on a bash) and tyiping python3 -i <network_interface> 
+The software can be executed by opening a shell (it was used on a bash), changing the cwd to _src_ and typing python3 dla.py -i <string:network_interface> -s <int:sample>.  
+We also recommend to use -ign as a flag to get a faster .pcap analysis.
