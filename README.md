@@ -23,7 +23,7 @@ When values are written into influx, if they exceed the threshold Kapacitor will
 There are only 2 required flags: __sample__ (-s) that indicates which is the value of _n_ and __interface__ (-i) which is the network interface to capture on.  
 There are also report (-r) which if specified will produce a final .pcap containing every sniffed packet during the session, ignore (-ign) which allow to ignore the traffic directed to the sniffing machine (to gain speed and mantain performance), postanalysis (-pa) which need also -r to be used and will produce a .txt analysis of the report and forge (-f) which will forge wrong packets for test purposes (its use is highly discouraged due to performance loss when the sniffing machine also creates/receive too many DNS requests).
 
-## Notes
+## Notes and benchmark
 After a several number of benchmarks with a Linux Mint Xfce 20.2 virtual machine and a virtual network, it emerged that:
 - The best hardware configuration to allow the software to run efficiently is 4 VirtualBox logical cores (equiv. to 2 cores) and 2048-4096 MB RAM.
 - It's better to not overload DNSLA's host with DNS queries in order to gain speed (it's recommended to use the software on a host which is known to not cause "DNS problems" so that it isn't needed to analyze it too).  
@@ -34,5 +34,8 @@ If instead, the 1st is satisfied, even if the 2nd isn't, it shouldn't slow much 
 Anyway, we highly recommend to NOT run the software on a station that doesn't satisfy the 1st requirement as results and functioning aren't guaranteed.  
 If you don't know your subnet address and mask, do "sudo apt install ipcalc" so that the software will be able to compute it automatically.
 
-PLEASE NOTE: this software exploits packet sniffing. It's strictly forbidden to sniff a network without permissions due to GDPR rules.
-             Any responsibility on the use of this software is rejected and will be on the user's own since the moment it's downloaded.
+__PLEASE NOTE__: this software exploits packet sniffing. It's strictly forbidden to sniff a network without permissions due to GDPR rules.  
+Any responsibility on the use of this software is rejected and will be on the user's own since the moment it's downloaded.
+
+## Execution
+The software can be executed by opening a shell (it was used on a bash) and tyiping python3 -i <network_interface> 
