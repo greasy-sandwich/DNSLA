@@ -1,2 +1,2 @@
 # DNSLA
-A short and simple software to analyze incorrect DNS responses
+## A short and simple software to analyze incorrect DNS responses
