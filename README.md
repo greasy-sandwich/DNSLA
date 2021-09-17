@@ -17,7 +17,7 @@ The main function also creates a shutdown_thread which will simply wait for user
 
 ## Stats and threshold
 The threshold consists of mean + stddev on the last _n_ values of every IP address of the network and it's calculated anytime a new .pcap is analyzed that's to say when new values are inserted in the data structure.  
-When values are written into influx, if they exceed the threshold Kapacitor will will trigger an alarm highlighting which is the faulty IP address and how many DNS wrong responses it made alongside with the threshold. Otherwise nothing will happens.
+When values are written into influx, if they exceed the threshold Kapacitor will trigger an alarm highlighting which is the faulty IP address and how many DNS wrong responses it made alongside with the threshold. Otherwise nothing will happens.
 
 ## Command line options
 There are only 2 required flags: __sample__ (-s) that indicates which is the value of _n_ and __interface__ (-i) which is the network interface to capture on.  
