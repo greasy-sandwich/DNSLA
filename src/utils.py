@@ -37,27 +37,6 @@ notzone = 0
 
 measurement_name = "dns_table"
 
-def get_threshold(influx_client, multiplier):
-    nrec = multiplier*5
-
-    stddev = 0.0
-    data = influx_client.query("SELECT stddev(count) FROM (SELECT * FROM dns_table ORDER BY time DESC LIMIT "+str(nrec)+") ORDER BY time DESC")
-    points = data.get_points()
-    for point in points: stddev = point["stddev"]
-    if stddev == None: stddev = 0.0
-
-    sum = 0.0
-    data = influx_client.query("SELECT * FROM dns_table ORDER BY time DESC LIMIT "+str(nrec))
-    points = data.get_points()
-    nrec = 0
-    for point in points:
-        sum += point["count"]
-        nrec += 1
-    if nrec != 0: mean = sum/nrec
-    else: mean = 0.0
-
-    return (float(stddev) + mean, nrec)
-
 def define_point_body(time, alert, ipv4, threshold, count):
     body = [
         {
