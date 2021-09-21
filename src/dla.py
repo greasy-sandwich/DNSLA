@@ -145,8 +145,8 @@ def insert_values(sample):
         except IndexError: pass
         values[key].insert(values[key][0]+1, IP_resps[key])
         values[key][0] = (values[key][0]+1)%sample
-    for key in values.keys():
-        print(key+": "+str(values[key][1:]))
+    '''for key in values.keys():
+        print(key+": "+str(values[key][1:]))'''
 
 def get_threshold(sample):
     global values
@@ -154,7 +154,7 @@ def get_threshold(sample):
     alert = False
     list = []
     for key in values: list = list + values[key][1:]
-    print(list)
+    #print(list)
     if len(list) > 0:
         mean = numpy.round(numpy.mean(list), 3)
         stddev = numpy.round(numpy.std(list, ddof=1), 3)
