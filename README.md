@@ -38,8 +38,12 @@ __PLEASE NOTE__: this software exploits packet sniffing. It's strictly forbidden
 Any responsibility on the use of this software is rejected and will be on the user's own since the moment it's downloaded.
 
 ## Execution
-To test the software you'll need to configure Kapacitor, Chronograf and Influx.
-To do that you must install them all and then go to http://localhost:8888 
+To test the software you'll need to install Kapacitor, Chronograf and Influx. After that you need to configure Chronograf and Kapacitor with its alarms:
+- Create an Influx user (remember username and password).
+- Go to http://localhost:8888 and connect your Influx database. The connection URL should be already present but if it's not use http://localhost:8086. Then insert Influx's username and password.
+- Choose a dashboard (you can skip this part or choose a random one, it's not important).
+- Connect your Kapacitor instance. Kapacitor's URL should be already present but if it's not use http://localhost:9092. Then insert username and password (you can use Influx's ones).
+- You should now be on Chronograf's main page. Go to Alerting (exclamation point icon), choose "build alert rule", 
 The software can be executed by opening a shell (it was used on a bash), changing the cwd to _src_ and typing:  
 ```python3 dla.py -i <string:network_interface> -s <int:sample>```.  
 We also recommend to use -ign option to get a faster .pcap analysis.
