@@ -43,7 +43,15 @@ To test the software you'll need to install Kapacitor, Chronograf and Influx. Af
 - Go to http://localhost:8888 and connect your Influx database. The connection URL should be already present but if it's not use http://localhost:8086. Then insert Influx's username and password.
 - Choose a dashboard (you can skip this part or choose a random one, it's not important).
 - Connect your Kapacitor instance. Kapacitor's URL should be already present but if it's not use http://localhost:9092. Then insert username and password (you can use Influx's ones).
-- You should now be on Chronograf's main page. Go to Alerting (exclamation point icon), choose "build alert rule", 
-The software can be executed by opening a shell (it was used on a bash), changing the cwd to _src_ and typing:  
+- You should now be on Chronograf's main page. Go to Alerting (exclamation point icon) and choose "build alert rule".
+  - In Alert Type choose "threshold", in Time Series choose "progettogr.autogen", "IPv4", mark the "group by" icon and then choose "alert".
+  - In Conditions set "equal to" and digit 1 on the right textbox.
+  - In Alert Handlers choose "telegram" and insert your bot's chat-ID (to create a bot follow this documentation https://docs.influxdata.com/kapacitor/v1.6/guides/event-handler-setup/#telegram-setup).
+  - In Message insert your personal message. 
+- DNSLA should now be able to write on Influx that is connected to Chronograf and Kapacitor.  
+
+Before starting the software itself remember to give capabilities to your binaries.  
+On our testing machine this capability was enough to run the software: ```sudo setcap cap_net_raw=eip /usr/bin/python3```.  
+The software can now be executed by opening a shell (it was used on a bash), changing the cwd to _src_ and typing:  
 ```python3 dla.py -i <string:network_interface> -s <int:sample>```.  
 We also recommend to use -ign option to get a faster .pcap analysis.
